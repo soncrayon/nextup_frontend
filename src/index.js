@@ -5,12 +5,15 @@ import App from './App';
 import {Provider} from 'react-redux'
 import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
 import thunk from 'redux-thunk'
+import { tasks } from './reducers/tasks'
+import { lists } from './reducers/lists'
+import { users } from './reducers/users'
 
 import reportWebVitals from './reportWebVitals';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-// const rootReducer = combineReducers({ cards, readings, users })
+const rootReducer = combineReducers({ tasks, lists, users })
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
